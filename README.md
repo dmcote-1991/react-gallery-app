@@ -1,6 +1,6 @@
 # React Gallery App
 
-This project is a single-page application React image gallery app.
+A single-page application (SPA) image gallery app made with React.
 
 ## Project Configuration
 

@@ -25,3 +25,4 @@ dist-ssr
 
 # Config
 vite.config.js
+/src/config.js
