@@ -1,9 +1,28 @@
-import React from "react";
+import { useState } from "react";
+import PropTypes from "prop-types";
 
-const Search = () => {
+const Search = ({ onSearch }) => {
+  const [searchText, setSearchText] = useState("");
+
+  const handleInputChange = (e) => {
+    setSearchText(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSearch(searchText);
+  };
+
   return (
-    <form className="search-form">
-      <input type="search" name="search" placeholder="Search" required />
+    <form className="search-form" onSubmit={handleSubmit}>
+      <input
+        type="search"
+        name="search"
+        placeholder="Search"
+        value={searchText}
+        onChange={handleInputChange}
+        required
+      />
       <button type="submit" className="search-button">
         <svg
           fill="#fff"
@@ -18,6 +37,10 @@ const Search = () => {
       </button>
     </form>
   );
+};
+
+Search.propTypes = {
+  onSearch: PropTypes.func.isRequired,
 };
 
 export default Search;

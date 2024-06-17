@@ -1,8 +1,7 @@
-import React from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import config from "./config";
-import "./App.css";
+import "./index.css";
 
 // App components
 import Search from "./components/Search";
@@ -11,21 +10,26 @@ import PhotoList from "./components/PhotoList";
 
 const App = () => {
   const apiKey = config.apiKey;
+  const navigate = useNavigate();
 
   const fetchData = async (query) => {
     const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`;
     try {
       const response = await axios.get(url);
       return response.data.photos.photo;
-    } catch {
+    } catch (error) {
       console.error("Error fetching data from Flickr API:", error);
       throw error;
     }
   };
 
+  const handleSearchSubmit = (query) => {
+    navigate(`/search/${query}`);
+  };
+
   return (
     <div className="container">
-      <Search />
+      <Search onSearch={handleSearchSubmit} fetchData={fetchData} />
       <Nav />
       <Routes>
         <Route path="/" element={<Navigate to="/cats" />} />
