@@ -1,37 +1,29 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import React from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
 import config from "./config";
 import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0);
+// App components
+import Search from "./components/Search";
+import Nav from "./components/Nav";
+import PhotoList from "./components/PhotoList";
+
+const App = () => {
   const apiKey = config.apiKey;
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="container">
+      <Search />
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Navigate to="/cats" />} />
+        <Route path="/cats" element={<PhotoList topic="cats" />} />
+        <Route path="/dogs" element={<PhotoList topic="dogs" />} />
+        <Route path="/computers" element={<PhotoList topic="computers" />} />
+        <Route path="/search/:query" element={<PhotoList />} />
+      </Routes>
+    </div>
   );
-}
+};
 
 export default App;
