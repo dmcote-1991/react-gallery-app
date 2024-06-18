@@ -7,7 +7,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import axios from "axios";
-import config from "./config";
+import apiKey from "./config";
 import "./index.css";
 
 // Imports App components
@@ -18,7 +18,6 @@ import NotFound from "./components/NotFound";
 
 // Handles routing and fetching data from the Flickr API
 const App = () => {
-  const apiKey = config.apiKey;
   const navigate = useNavigate();
   const location = useLocation();
 
