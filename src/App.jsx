@@ -1,4 +1,10 @@
-import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
+import {
+  Route,
+  Routes,
+  Navigate,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
 import axios from "axios";
 import config from "./config";
 import "./index.css";
@@ -7,10 +13,12 @@ import "./index.css";
 import Search from "./components/Search";
 import Nav from "./components/Nav";
 import PhotoList from "./components/PhotoList";
+import NotFound from "./components/NotFound";
 
 const App = () => {
   const apiKey = config.apiKey;
   const navigate = useNavigate();
+  const location = useLocation();
 
   const fetchData = async (query) => {
     const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`;
@@ -29,26 +37,45 @@ const App = () => {
 
   return (
     <div className="container">
-      <Search onSearch={handleSearchSubmit} fetchData={fetchData} />
+      <Search onSearch={handleSearchSubmit} />
       <Nav />
       <Routes>
         <Route path="/" element={<Navigate to="/cats" />} />
         <Route
           path="/cats"
-          element={<PhotoList fetchData={fetchData} topic="cats" />}
+          element={
+            <PhotoList
+              fetchData={fetchData}
+              topic="cats"
+              key={location.pathname}
+            />
+          }
         />
         <Route
           path="/dogs"
-          element={<PhotoList fetchData={fetchData} topic="dogs" />}
+          element={
+            <PhotoList
+              fetchData={fetchData}
+              topic="dogs"
+              key={location.pathname}
+            />
+          }
         />
         <Route
           path="/computers"
-          element={<PhotoList fetchData={fetchData} topic="computers" />}
+          element={
+            <PhotoList
+              fetchData={fetchData}
+              topic="computers"
+              key={location.pathname}
+            />
+          }
         />
         <Route
           path="/search/:query"
-          element={<PhotoList fetchData={fetchData} />}
+          element={<PhotoList fetchData={fetchData} key={location.pathname} />}
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

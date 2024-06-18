@@ -7,10 +7,12 @@ const PhotoList = ({ fetchData, topic }) => {
   const { query } = useParams();
   const [photos, setPhotos] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const searchTerm = topic || query;
     if (searchTerm) {
+      setLoading(true);
       fetchData(searchTerm)
         .then((data) => {
           setPhotos(data);
@@ -18,6 +20,7 @@ const PhotoList = ({ fetchData, topic }) => {
         })
         .catch((error) => {
           console.error("Error fetching photos:", error);
+          setError("Failed to fetch photos. Please try again.");
           setLoading(false);
         });
     }
@@ -25,6 +28,19 @@ const PhotoList = ({ fetchData, topic }) => {
 
   if (loading) {
     return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
+  if (photos.length === 0) {
+    return (
+      <p>
+        No matches found for "{topic || query}". Please try a different search
+        term.
+      </p>
+    );
   }
 
   return (
