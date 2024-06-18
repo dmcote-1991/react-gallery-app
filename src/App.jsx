@@ -11,7 +11,7 @@ import config from "./config";
 import "./index.css";
 
 // Imports App components
-import Search from "./components/Search";
+import SearchForm from "./components/SearchForm";
 import Nav from "./components/Nav";
 import PhotoList from "./components/PhotoList";
 import NotFound from "./components/NotFound";
@@ -41,7 +41,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <Search onSearch={handleSearchSubmit} />
+      <SearchForm onSearch={handleSearchSubmit} />
       <Nav />
       <Routes>
         <Route path="/" element={<Navigate to="/cats" />} />

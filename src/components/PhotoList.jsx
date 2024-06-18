@@ -42,10 +42,10 @@ const PhotoList = ({ fetchData, topic }) => {
   // Render message if no photos are found for the topic or query
   if (photos.length === 0) {
     return (
-      <p>
-        No matches found for "{topic || query}". Please try a different search
-        term.
-      </p>
+      <>
+        <h3>No results found for {topic || query}</h3>
+        <p>Please try again.</p>
+      </>
     );
   }
 

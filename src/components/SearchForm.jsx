@@ -3,7 +3,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 
 // Search component for handling search input and submission
-const Search = ({ onSearch }) => {
+const SearchForm = ({ onSearch }) => {
   const [searchText, setSearchText] = useState("");
 
   // Updates the searchText state based on input change
@@ -43,9 +43,9 @@ const Search = ({ onSearch }) => {
   );
 };
 
-// Type checks props
-Search.propTypes = {
+// Type checking of props
+SearchForm.propTypes = {
   onSearch: PropTypes.func.isRequired,
 };
 
-export default Search;
+export default SearchForm;
