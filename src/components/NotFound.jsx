@@ -1,3 +1,4 @@
+// Component for displaying a "Page Not Found" message
 const NotFound = () => {
   return (
     <div className="not-found">

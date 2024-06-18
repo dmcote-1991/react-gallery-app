@@ -1,3 +1,4 @@
+// Imports necessary dependencies
 import {
   Route,
   Routes,
@@ -9,17 +10,19 @@ import axios from "axios";
 import config from "./config";
 import "./index.css";
 
-// App components
+// Imports App components
 import Search from "./components/Search";
 import Nav from "./components/Nav";
 import PhotoList from "./components/PhotoList";
 import NotFound from "./components/NotFound";
 
+// Handles routing and fetching data from the Flickr API
 const App = () => {
   const apiKey = config.apiKey;
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Fetches data from the Flickr API based on the query
   const fetchData = async (query) => {
     const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`;
     try {
@@ -31,6 +34,7 @@ const App = () => {
     }
   };
 
+  // Handles search submission and navigates to the search results page
   const handleSearchSubmit = (query) => {
     navigate(`/search/${query}`);
   };

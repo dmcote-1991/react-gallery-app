@@ -1,5 +1,7 @@
+// Import for type checking
 import PropTypes from "prop-types";
 
+// Component to display a single photo
 const Photo = ({ src, alt }) => {
   return (
     <li>
@@ -8,6 +10,7 @@ const Photo = ({ src, alt }) => {
   );
 };
 
+// Type checking of props
 Photo.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,

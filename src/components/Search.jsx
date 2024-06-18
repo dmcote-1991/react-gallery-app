@@ -1,13 +1,17 @@
+// Imports necessary dependencies
 import { useState } from "react";
 import PropTypes from "prop-types";
 
+// Search component for handling search input and submission
 const Search = ({ onSearch }) => {
   const [searchText, setSearchText] = useState("");
 
+  // Updates the searchText state based on input change
   const handleInputChange = (e) => {
     setSearchText(e.target.value);
   };
 
+  // Handles form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     onSearch(searchText);
@@ -39,6 +43,7 @@ const Search = ({ onSearch }) => {
   );
 };
 
+// Type checks props
 Search.propTypes = {
   onSearch: PropTypes.func.isRequired,
 };

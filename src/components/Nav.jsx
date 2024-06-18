@@ -1,5 +1,7 @@
+// Import for navigation links
 import { NavLink } from "react-router-dom";
 
+// Navigation component displaying links to different topics
 const Nav = () => {
   return (
     <nav className="main-nav">
