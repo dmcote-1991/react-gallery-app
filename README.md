@@ -30,6 +30,7 @@ react-gallery-app/
 ├── index.html             # Main HTML file
 ├── package.json           # Project metadata and dependencies
 ├── vite.config.js         # Configuration file for Vite
+├── tsconfig.json          # Configuration file for TypeScript
 ├── .gitignore             # Git ignore file
 ├── .eslintrc.cjs          # ESLint configuration
 └── README.md              # Details about the project
