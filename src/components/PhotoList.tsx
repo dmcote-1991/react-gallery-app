@@ -1,15 +1,26 @@
 // Imports necessary dependencies
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import PropTypes from "prop-types";
 import Photo from "./Photo";
 
+interface Photo {
+  id: string;
+  server: string;
+  secret: string;
+  title: string;
+}
+
+interface PhotoListProps {
+  fetchData: (query: string) => Promise<Photo[]>;
+  topic?: string;
+}
+
 // Component for displaying a list of photos based on a topic or search query
-const PhotoList = ({ fetchData, topic }) => {
-  const { query } = useParams();
-  const [photos, setPhotos] = useState([]);
+const PhotoList: React.FC<PhotoListProps> = ({ fetchData, topic }) => {
+  const { query } = useParams<{ query: string }>();
+  const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   // Fetches photos based on the topic or query parameter
   useEffect(() => {
@@ -65,12 +76,6 @@ const PhotoList = ({ fetchData, topic }) => {
       </ul>
     </div>
   );
-};
-
-// Type checking of props
-PhotoList.propTypes = {
-  fetchData: PropTypes.func.isRequired,
-  topic: PropTypes.string,
 };
 
 export default PhotoList;

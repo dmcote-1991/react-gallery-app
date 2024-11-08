@@ -1,5 +1,5 @@
 // Component for displaying a "Page Not Found" message
-const NotFound = () => {
+const NotFound: React.FC = () => {
   return (
     <div className="not-found">
       <h2>404 - Page Not Found</h2>

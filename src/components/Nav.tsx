@@ -2,7 +2,7 @@
 import { NavLink } from "react-router-dom";
 
 // Navigation component displaying links to different topics
-const Nav = () => {
+const Nav: React.FC = () => {
   return (
     <nav className="main-nav">
       <ul>

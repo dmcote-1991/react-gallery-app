@@ -1,18 +1,21 @@
 // Imports necessary dependencies
 import { useState } from "react";
-import PropTypes from "prop-types";
+
+interface SearchFormProps {
+  onSearch: (query: string) => void;
+}
 
 // Search component for handling search input and submission
-const SearchForm = ({ onSearch }) => {
-  const [searchText, setSearchText] = useState("");
+const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
+  const [searchText, setSearchText] = useState<string>("");
 
   // Updates the searchText state based on input change
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value);
   };
 
   // Handles form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSearch(searchText);
   };
@@ -41,11 +44,6 @@ const SearchForm = ({ onSearch }) => {
       </button>
     </form>
   );
-};
-
-// Type checking of props
-SearchForm.propTypes = {
-  onSearch: PropTypes.func.isRequired,
 };
 
 export default SearchForm;

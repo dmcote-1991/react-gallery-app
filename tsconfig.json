@@ -3,6 +3,8 @@
     /* Basic Compiler Options */
     "target": "es2016",                        /* Set the JavaScript language version. */
     "module": "esnext",                        /* Specify what module code is generated. */
+    "jsx": "react-jsx",                        /* Enables TypeScript to compile JSX syntax in React */
+    "moduleResolution": "node",                /* Allows TypeScript to mirror how Node.js handles module paths and dependencies */
     "esModuleInterop": true,                   /* Emit additional JavaScript for CommonJS module support. */
     "forceConsistentCasingInFileNames": true,  /* Ensure correct casing in imports. */
     "strict": true,                            /* Enable all strict type-checking options. */
