@@ -2,6 +2,18 @@
 
 A simple and dynamic photo gallery app that allows users to search and view photos on various topics (cats, dogs, computers) from the Flickr API. It supports custom searches for a personalized experience.
 
+## Table of Contents
+
+1. [Features](#features)
+2. [Technologies Used](#technologies-used)
+3. [Project Structure](#project-structure)
+4. [Components Overview](#components-overview)
+5. [Installation](#installation)
+   - [Prerequisites](#prerequisites)
+   - [Usage](#usage)
+6. [Future Enhancements](#future-enhancements)
+7. [Contributing](#contributing)
+
 ## Features
 
 - **Dynamic Navigation:** Navigate between different topics with easy-to-use links.
@@ -9,6 +21,15 @@ A simple and dynamic photo gallery app that allows users to search and view phot
 - **API Integration:** Fetches images from the Flickr API for specific topics and custom searches.
 - **Error Handling:** Displays a "Page Not Found" message for invalid routes.
 - **Responsive Design:** Adapts to different screen sizes.
+
+## Technologies Used
+
+- **React**: Library for building user interfaces.
+- **React Router**: Library for client-side routing.
+- **TypeScript**: A superset of JavaScript that adds static types to improve development speed and code quality.
+- **Axios**: HTTP client for making requests to the Flickr API.
+- **Vite**: Development environment for fast, optimized builds.
+- **Flickr API**: Source of the photo data.
 
 ## Project Structure
 
@@ -18,15 +39,15 @@ react-gallery-app/
 ├── node_modules/          # Dependencies
 ├── src/                   # Source code
 │   ├── components/        # Components for different parts of the app
-│   │   ├── Nav.jsx        # Navigation links for topics
-│   │   ├── NotFound.jsx   # "404 - Page Not Found" message
-│   │   ├── Photo.jsx      # Component to display a single photo
-│   │   ├── PhotoList.jsx  # Lists photos based on a topic or search query
-│   │   └── SearchForm.jsx # Search form for custom photo searches
-│   ├── App.jsx            # Main application component, handles routing
+│   │   ├── Nav.tsx        # Navigation links for topics
+│   │   ├── NotFound.tsx   # "404 - Page Not Found" message
+│   │   ├── Photo.tsx      # Component to display a single photo
+│   │   ├── PhotoList.tsx  # Lists photos based on a topic or search query
+│   │   └── SearchForm.tsx # Search form for custom photo searches
+│   ├── App.tsx            # Main application component, handles routing
 │   ├── config.js          # Stores API key and configuration details
 │   ├── index.css          # Main styles for the app
-│   └── index.jsx          # Entry point of the application
+│   └── index.tsx          # Entry point of the application
 ├── index.html             # Main HTML file
 ├── package.json           # Project metadata and dependencies
 ├── vite.config.js         # Configuration file for Vite
@@ -35,6 +56,14 @@ react-gallery-app/
 ├── .eslintrc.cjs          # ESLint configuration
 └── README.md              # Details about the project
 ```
+
+## Components Overview
+
+- **Nav**: Renders the main navigation links for predefined categories.
+- **NotFound**: Displays a 404 error page if an invalid route is accessed.
+- **Photo**: Shows an individual photo with its image source and alt text.
+- **PhotoList**: Fetches and displays a list of photos based on a category or search term.
+- **SearchForm**: Renders a search bar allowing users to perform custom searches.
 
 ## Installation
 
@@ -77,42 +106,12 @@ Visit [Flickr's API page](https://www.flickr.com/services/developer/api/) to cre
 
   - The `npm run preview` command allows you to preview the production build locally, which is useful for testing before deploying the app.
 
-## Components Overview
+6. **Run TypeScript in watch mode (for development):**
+  ```bash
+  npm run tsc
+  ```
 
-- **Nav**: Renders the main navigation links for predefined categories.
-- **NotFound**: Displays a 404 error page if an invalid route is accessed.
-- **Photo**: Shows an individual photo with its image source and alt text.
-- **PhotoList**: Fetches and displays a list of photos based on a category or search term.
-- **SearchForm**: Renders a search bar allowing users to perform custom searches.
-
-## Technologies Used
-
-- **React**: Library for building user interfaces.
-- **React Router**: Library for client-side routing.
-- **Axios**: HTTP client for making requests to the Flickr API.
-- **Vite**: Development environment for fast, optimized builds.
-- **Flickr API**: Source of the photo data.
-
-## Dependencies
-
-- `react`: Core library for building UI.
-- `react-dom`: DOM-specific methods for React.
-- `react-router-dom`: Provides routing features.
-- `axios`: HTTP client for making API requests.
-- `prop-types`: Prop type validation for components.
-
-## Development Dependencies
-
-- `vite`: Bundler for faster builds and hot reloading.
-- `eslint`: Linter to maintain code quality.
-- `eslint-plugin-react`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`: Plugins for linting React code.
-
-## Scripts
-
-- **npm run dev**: Starts the development server.
-- **npm run build**: Builds the project for production.
-- **npm run lint**: Lints the project for code quality issues.
-- **npm run preview**: Previews the production build.
+  - This will keep TypeScript running in watch mode for automatic compiling, helping you catch type errors as you code.
 
 ## Future Enhancements
 
