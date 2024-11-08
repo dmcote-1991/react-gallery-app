@@ -124,3 +124,6 @@ Visit [Flickr's API page](https://www.flickr.com/services/developer/api/) to cre
 ## Contributing
 Feel free to contribute by opening issues or submitting pull requests. When submitting a pull request, ensure that your code passes the linting rules by running `npm run lint`. You can configure your editor to run linting automatically on save.
 
+- [Open an issue](https://github.com/dmcote-1991/react-gallery-app/issues/new)
+- [View open issues](https://github.com/dmcote-1991/react-gallery-app/issues)
+- [View pull requests](https://github.com/dmcote-1991/react-gallery-app/pulls)
