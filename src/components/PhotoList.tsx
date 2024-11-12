@@ -43,14 +43,8 @@ const PhotoList: React.FC<PhotoListProps> = ({ fetchData, topic }) => {
   }, [fetchData, topic, query]); // Dependencies array triggers effect on changes
 
   // Conditional rendering based on loading, error, or no photos found
-  if (loading) {
-    return <p>Loading...</p>; // Shows loading message while data is being fetched
-  }
-
-  if (error) {
-    return <p>{error}</p>; // Displays error message if data fetching fails
-  }
-
+  if (loading) return <p>Loading...</p>; // Shows loading message while data is being fetched
+  if (error) return <p>{error}</p>; // Displays error message if data fetching fails
   if (photos.length === 0) {
     return (
       <>

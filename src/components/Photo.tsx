@@ -1,16 +1,30 @@
-// Interface defining the properties required by the Photo component
+// Photo.tsx
+import { useState } from 'react';
+import Modal from './Modal'; // Import the modal component
+
 interface PhotoProps {
   src: string; // URL source of the image
   alt: string; // Alt text for accessibility
 }
 
-// Component to display a single photo item in a list
 const Photo: React.FC<PhotoProps> = ({ src, alt }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to track modal visibility
+
+  // Function to open the modal
+  const openModal = () => setIsModalOpen(true);
+
+  // Function to close the modal
+  const closeModal = () => setIsModalOpen(false);
+
   return (
-    <li>
-      {/* Image element using the provided src and alt attributes */}
-      <img src={src} alt={alt} />
-    </li>
+    <>
+      <li onClick={openModal}>
+        <img src={src} alt={alt} />
+      </li>
+      
+      {/* Render the modal if it's open */}
+      {isModalOpen && <Modal imageSrc={src} onClose={closeModal} />}
+    </>
   );
 };
 
