@@ -19,6 +19,7 @@ A simple and dynamic photo gallery app that allows users to search and view phot
 - **Dynamic Navigation:** Navigate between different topics with easy-to-use links.
 - **Photo Search:** Search for photos based on user-entered queries.
 - **API Integration:** Fetches images from the Flickr API for specific topics and custom searches.
+- **Image Modal View:** Click on any photo to view it in a larger modal view, providing a better look at individual images.
 - **Error Handling:** Displays a "Page Not Found" message for invalid routes.
 - **Responsive Design:** Adapts to different screen sizes.
 
@@ -39,6 +40,7 @@ react-gallery-app/
 ├── node_modules/          # Dependencies
 ├── src/                   # Source code
 │   ├── components/        # Components for different parts of the app
+│   │   ├── Modal.tsx      # Component to display Modal of clicked image
 │   │   ├── Nav.tsx        # Navigation links for topics
 │   │   ├── NotFound.tsx   # "404 - Page Not Found" message
 │   │   ├── Photo.tsx      # Component to display a single photo
@@ -59,6 +61,7 @@ react-gallery-app/
 
 ## Components Overview
 
+- **Modal**: Provides a full-screen overlay with an enlarged view of the selected image, along with a close button for easy navigation back to the gallery.
 - **Nav**: Renders the main navigation links for predefined categories.
 - **NotFound**: Displays a 404 error page if an invalid route is accessed.
 - **Photo**: Shows an individual photo with its image source and alt text.
