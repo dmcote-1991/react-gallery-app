@@ -24,16 +24,19 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
   return (
     <form className="search-form" onSubmit={handleSubmit}>
       {/* Input field for search text, bound to searchText state and handleInputChange */}
+      <label htmlFor="search">Search for photos:</label>
       <input
+        id="search"
         type="search"
         name="search"
         placeholder="Search"
         value={searchText} // Sets input value to current searchText state
         onChange={handleInputChange} // Updates searchText on input change
         required // Ensures the input field must be filled before submission
+        aria-label="Search for photos"
       />
       {/* Submit button with embedded search icon SVG */}
-      <button type="submit" className="search-button">
+      <button type="submit" className="search-button" aria-label="Submit search">
         <svg
           fill="#fff"
           height="24"

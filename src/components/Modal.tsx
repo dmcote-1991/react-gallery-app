@@ -8,10 +8,10 @@ interface ModalProps {
 
 const Modal: React.FC<ModalProps> = ({ imageSrc, onClose }) => {
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div className="modal-overlay" onClick={onClose} role="presentation" aria-label="Close image modal">
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <img src={imageSrc} alt="Enlarged view" />
-        <button className="close-btn" onClick={onClose}>Close</button>
+        <button className="close-btn" onClick={onClose} aria-label="Close">Close</button>
       </div>
     </div>
   );
